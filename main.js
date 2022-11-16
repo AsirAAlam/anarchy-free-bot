@@ -29,8 +29,58 @@ client.on('messageCreate', message => {
     return;
   }
 
-  // Ignore messages that don't start with prefix
+  const msg = message.content;
+
   if (!message.content.startsWith(prefix)) {
+    // const ref = {
+    //   '.-': 'a',
+    //   '-...': 'b',
+    //   '-.-.': 'c',
+    //   '-..': 'd',
+    //   '.': 'e',
+    //   '..-.': 'f',
+    //   '--.': 'g',
+    //   '....': 'h',
+    //   '..': 'i',
+    //   '.---': 'j',
+    //   '-.-': 'k',
+    //   '.-..': 'l',
+    //   '--': 'm',
+    //   '-.': 'n',
+    //   '---': 'o',
+    //   '.--.': 'p',
+    //   '--.-': 'q',
+    //   '.-.': 'r',
+    //   '...': 's',
+    //   '-': 't',
+    //   '..-': 'u',
+    //   '...-': 'v',
+    //   '.--': 'w',
+    //   '-..-': 'x',
+    //   '-.--': 'y',
+    //   '--..': 'z',
+    //   '.----': '1',
+    //   '..---': '2',
+    //   '...--': '3',
+    //   '....-': '4',
+    //   '.....': '5',
+    //   '-....': '6',
+    //   '--...': '7',
+    //   '---..': '8',
+    //   '----.': '9',
+    //   '-----': '0',
+    // };
+
+    // let decoded = msg;
+
+    // for (const key of Object.keys(ref).sort((a, b) => b.length - a.length)) {
+    //   decoded = decoded.replaceAll(key, ref[key]);
+    // }
+
+    // if (msg !== decoded) {
+    //   message.channel.send("@" + message.author.username + " meant to say:\n```\n" + decoded + "\n```");
+    // }
+
     return;
   }
 
