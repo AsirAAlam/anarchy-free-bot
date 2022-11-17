@@ -32,55 +32,6 @@ client.on('messageCreate', message => {
   const msg = message.content;
 
   if (!message.content.startsWith(prefix)) {
-    // const ref = {
-    //   '.-': 'a',
-    //   '-...': 'b',
-    //   '-.-.': 'c',
-    //   '-..': 'd',
-    //   '.': 'e',
-    //   '..-.': 'f',
-    //   '--.': 'g',
-    //   '....': 'h',
-    //   '..': 'i',
-    //   '.---': 'j',
-    //   '-.-': 'k',
-    //   '.-..': 'l',
-    //   '--': 'm',
-    //   '-.': 'n',
-    //   '---': 'o',
-    //   '.--.': 'p',
-    //   '--.-': 'q',
-    //   '.-.': 'r',
-    //   '...': 's',
-    //   '-': 't',
-    //   '..-': 'u',
-    //   '...-': 'v',
-    //   '.--': 'w',
-    //   '-..-': 'x',
-    //   '-.--': 'y',
-    //   '--..': 'z',
-    //   '.----': '1',
-    //   '..---': '2',
-    //   '...--': '3',
-    //   '....-': '4',
-    //   '.....': '5',
-    //   '-....': '6',
-    //   '--...': '7',
-    //   '---..': '8',
-    //   '----.': '9',
-    //   '-----': '0',
-    // };
-
-    // let decoded = msg;
-
-    // for (const key of Object.keys(ref).sort((a, b) => b.length - a.length)) {
-    //   decoded = decoded.replaceAll(key, ref[key]);
-    // }
-
-    // if (msg !== decoded) {
-    //   message.channel.send("@" + message.author.username + " meant to say:\n```\n" + decoded + "\n```");
-    // }
-
     return;
   }
 
@@ -112,6 +63,54 @@ client.on('messageCreate', message => {
     } else {
       message.channel.send("Usage: -rng <integer>");
     }
+  }
+  if (command === 'morse') {
+    const ref = {
+      '.-': 'a',
+      '-...': 'b',
+      '-.-.': 'c',
+      '-..': 'd',
+      '.': 'e',
+      '..-.': 'f',
+      '--.': 'g',
+      '....': 'h',
+      '..': 'i',
+      '.---': 'j',
+      '-.-': 'k',
+      '.-..': 'l',
+      '--': 'm',
+      '-.': 'n',
+      '---': 'o',
+      '.--.': 'p',
+      '--.-': 'q',
+      '.-.': 'r',
+      '...': 's',
+      '-': 't',
+      '..-': 'u',
+      '...-': 'v',
+      '.--': 'w',
+      '-..-': 'x',
+      '-.--': 'y',
+      '--..': 'z',
+      '.----': '1',
+      '..---': '2',
+      '...--': '3',
+      '....-': '4',
+      '.....': '5',
+      '-....': '6',
+      '--...': '7',
+      '---..': '8',
+      '----.': '9',
+      '-----': '0',
+    };
+
+    let decoded = message.content.slice(prefix.length + ('morse').length);
+
+    for (const key of Object.keys(ref).sort((a, b) => b.length - a.length)) {
+      decoded = decoded.replaceAll(key, ref[key]);
+    }
+
+    message.channel.send("@" + message.author.username + " meant to say:\n```\n" + decoded + "\n```");
   }
 });
 
