@@ -1,15 +1,15 @@
 const { Client, GatewayIntentBits } = require('discord.js')
-// const express = require("express"); // middleware
+const express = require("express"); // middleware
 
 require("dotenv").config();
 
 const prefix = '-';
-// const app = express();
-// const PORT = process.env.PORT || 5000;
+const app = express();
+const PORT = process.env.PORT || 5000;
 
-// app.listen(PORT, () => {
-//   console.log("Server listening on port " + PORT);
-// });
+app.listen(PORT, () => {
+  console.log("Server listening on port " + PORT);
+});
 
 const client = new Client({
   intents: [
