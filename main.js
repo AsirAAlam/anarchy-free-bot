@@ -112,6 +112,29 @@ client.on('messageCreate', message => {
 
     message.channel.send("@" + message.author.username + " meant to say:\n```\n" + decoded + "\n```");
   }
+
+  if (command === 'tictactoe') {
+    let board = "";
+
+    board += '```\n';
+    board += ' 1 | 2 | 3 \n';
+    board += '---+---+---\n';
+    board += ' 4 | 5 | 6 \n';
+    board += '---+---+---\n';
+    board += ' 7 | 8 | 9 \n';
+    board += '```\n';
+
+    message.channel.send(board);
+  }
+
+  if (command === 'time') {
+    let timestr = '';
+    let date = new Date();
+
+    timestr += date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+
+    message.channel.send(timestr);
+  }
 });
 
 client.login(process.env.TOKEN);
